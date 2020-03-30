@@ -36,7 +36,7 @@ Col component props *MUST WRAP WITH ROW COMPONENT*
 <Row>
 ```
 
-##Row
+## Row
 
 ```
 <Row
