@@ -1,14 +1,11 @@
 {
-  "name": "thegrid",
+  "name": "thegridsys",
   "version": "1.0.0",
   "description": "React grid system using styled-component",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "REPO"
+    "url": "git+https://github.com/hamdysalah1/thegrid.git"
   },
   "dependencies": {
     "styled-components": "^5.0.1"
@@ -19,5 +16,10 @@
     "react"
   ],
   "author": "Hamdy Salah",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/hamdysalah1/thegrid/issues"
+  },
+  "homepage": "https://github.com/hamdysalah1/thegrid#readme"
 }

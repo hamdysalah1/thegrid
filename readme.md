@@ -1,3 +1,10 @@
+## Installing
+1. Use the command 
+<code>``npm i thegridsys`` or ``yarn add thegridsys``</code>
+2. import the components
+<code>```import { Col, Row, Container } from "thegridsys";```</code>
+
+
 ## Break Points
 **Mobile Min width:** 320px
 **Table Min width:** 768px
