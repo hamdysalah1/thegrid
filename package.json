@@ -1,0 +1,23 @@
+{
+  "name": "thegrid",
+  "version": "1.0.0",
+  "description": "React grid system using styled-component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "REPO"
+  },
+  "dependencies": {
+    "styled-components": "^5.0.1"
+  },
+  "keywords": [
+    "grid",
+    "system",
+    "react"
+  ],
+  "author": "Hamdy Salah",
+  "license": "ISC"
+}
