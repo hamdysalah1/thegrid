@@ -21,10 +21,12 @@ const ContainerDiv = _styledComponents.default.div({
   marginRight: "auto",
   marginLeft: "auto",
   [_breakPoints.breakPoint.desktop]: {
-    width: ({ fluid }) => (fluid === "true" ? "100%" : "1140px"),
+    width: ({ fluid }) =>
+      fluid && fluid.toString() === "true" ? "100%" : "1140px",
   },
   [_breakPoints.breakPoint.tabletOnly]: {
-    width: ({ fluid }) => (fluid === "true" ? "100%" : "720px"),
+    width: ({ fluid }) =>
+      fluid && fluid.toString() === "true" ? "100%" : "720px",
   },
   [_breakPoints.breakPoint.mobileOnly]: {
     width: "100%",
@@ -35,7 +37,7 @@ const Container = ({ fluid, children }) => {
   return /*#__PURE__*/ _react.default.createElement(
     ContainerDiv,
     {
-      fluid: fluid.toString(),
+      fluid: fluid,
     },
     children
   );

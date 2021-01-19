@@ -8,10 +8,12 @@ const ContainerDiv = styled.div({
   marginRight: "auto",
   marginLeft: "auto",
   [breakPoint.desktop]: {
-    width: ({ fluid }) => (fluid === "true" ? "100%" : "1140px"),
+    width: ({ fluid }) =>
+      fluid && fluid.toString() === "true" ? "100%" : "1140px",
   },
   [breakPoint.tabletOnly]: {
-    width: ({ fluid }) => (fluid === "true" ? "100%" : "720px"),
+    width: ({ fluid }) =>
+      fluid && fluid.toString() === "true" ? "100%" : "720px",
   },
   [breakPoint.mobileOnly]: {
     width: "100%",
@@ -19,5 +21,5 @@ const ContainerDiv = styled.div({
 });
 
 export const Container = ({ fluid, children }) => {
-  return <ContainerDiv fluid={fluid.toString()}>{children}</ContainerDiv>;
+  return <ContainerDiv fluid={fluid}>{children}</ContainerDiv>;
 };

@@ -23,54 +23,6 @@ max-width: "100%",
 width: "auto",
 flex: "1 0 auto",
 `;
-const viewPorts = [
-  {
-    media: null,
-    size: xs,
-  },
-  {
-    media: _index.breakPoint.tablet,
-    size: sm,
-  },
-  {
-    media: _index.breakPoint.desktop,
-    size: md,
-  },
-  {
-    media: _index.breakPoint.largeDesktop,
-    size: lg,
-  },
-];
-
-const createCol = (media, cols) => {
-  const styles = `
-  flex: 0 0 ${(100 * cols) / 12}%;
-  max-width: ${(100 * cols) / 12}%;
-`;
-
-  if (!cols) {
-    return;
-  }
-
-  if (!media) {
-    return styles;
-  }
-
-  return `${media} { ${styles} }`;
-};
-
-const mediaQuery = viewPorts
-  .reduce((acc, el) => {
-    if (el.size) {
-      const _mediaQuery = createCol(el.media, el.size);
-
-      acc.push(_mediaQuery);
-    }
-
-    return acc;
-  }, [])
-  .toString()
-  .replace(",@media", " @media");
 
 const Cols = _styledComponents.default.div(
   _t ||
@@ -87,10 +39,58 @@ const Cols = _styledComponents.default.div(
   ({ order }) => order && `order: ${order};`,
   ({ alignSelf }) => alignSelf && `align-self: ${alignSelf};`,
   ({ xs, sm, md, lg }) => !xs && !sm && !md && !lg && defaultCol,
-  mediaQuery
+  ({ mediaQuery }) => mediaQuery
 );
 
 const Col = ({ xs, sm, md, lg, alignSelf, order, children }) => {
+  const viewPorts = [
+    {
+      media: null,
+      size: xs,
+    },
+    {
+      media: _index.breakPoint.tablet,
+      size: sm,
+    },
+    {
+      media: _index.breakPoint.desktop,
+      size: md,
+    },
+    {
+      media: _index.breakPoint.largeDesktop,
+      size: lg,
+    },
+  ];
+
+  const createCol = (media, cols) => {
+    const styles = `
+    flex: 0 0 ${(100 * cols) / 12}%;
+    max-width: ${(100 * cols) / 12}%;
+  `;
+
+    if (!cols) {
+      return;
+    }
+
+    if (!media) {
+      return styles;
+    }
+
+    return `${media} { ${styles} }`;
+  };
+
+  const mediaQuery = viewPorts
+    .reduce((acc, el) => {
+      if (el.size) {
+        const _mediaQuery = createCol(el.media, el.size);
+
+        acc.push(_mediaQuery);
+      }
+
+      return acc;
+    }, [])
+    .toString()
+    .replace(",@media", " @media");
   return /*#__PURE__*/ _react.default.createElement(
     Cols,
     {
@@ -100,6 +100,7 @@ const Col = ({ xs, sm, md, lg, alignSelf, order, children }) => {
       lg: lg,
       alignSelf: alignSelf,
       order: order,
+      mediaQuery: mediaQuery,
     },
     children
   );

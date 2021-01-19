@@ -1,6 +1,6 @@
 {
   "name": "thegridsys",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React grid system using styled-component",
   "main": "index.js",
   "repository": {
